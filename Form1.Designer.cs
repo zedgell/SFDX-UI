@@ -32,9 +32,9 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.Logout = new ePOSOne.btnProduct.Class1();
-            this.Login = new ePOSOne.btnProduct.Class1();
             this.FolderSelect = new ePOSOne.btnProduct.Class1();
+            this.DevHub = new ePOSOne.btnProduct.Class1();
+            this.Login = new ePOSOne.btnProduct.Class1();
             this.SuspendLayout();
             // 
             // textBox1
@@ -51,46 +51,6 @@
             // folderBrowserDialog1
             // 
             this.folderBrowserDialog1.HelpRequest += new System.EventHandler(this.FolderBrowserDialog1_HelpRequest);
-            // 
-            // Logout
-            // 
-            this.Logout.BackColor = System.Drawing.Color.Black;
-            this.Logout.BorderColor = System.Drawing.Color.Orange;
-            this.Logout.ButtonColor = System.Drawing.Color.Black;
-            this.Logout.FlatAppearance.BorderSize = 0;
-            this.Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Logout.Font = new System.Drawing.Font("Unispace", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Logout.Location = new System.Drawing.Point(602, 12);
-            this.Logout.Name = "Logout";
-            this.Logout.OnHoverBorderColor = System.Drawing.Color.Orange;
-            this.Logout.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.Logout.OnHoverTextColor = System.Drawing.Color.Black;
-            this.Logout.Size = new System.Drawing.Size(186, 81);
-            this.Logout.TabIndex = 2;
-            this.Logout.Text = "Logout";
-            this.Logout.TextColor = System.Drawing.Color.White;
-            this.Logout.UseVisualStyleBackColor = false;
-            this.Logout.Click += new System.EventHandler(this.Class11_Click);
-            // 
-            // Login
-            // 
-            this.Login.BackColor = System.Drawing.Color.Black;
-            this.Login.BorderColor = System.Drawing.Color.Orange;
-            this.Login.ButtonColor = System.Drawing.Color.Black;
-            this.Login.FlatAppearance.BorderSize = 0;
-            this.Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Login.Font = new System.Drawing.Font("Unispace", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Login.Location = new System.Drawing.Point(12, 12);
-            this.Login.Name = "Login";
-            this.Login.OnHoverBorderColor = System.Drawing.Color.Orange;
-            this.Login.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.Login.OnHoverTextColor = System.Drawing.Color.Black;
-            this.Login.Size = new System.Drawing.Size(186, 81);
-            this.Login.TabIndex = 1;
-            this.Login.Text = "Login";
-            this.Login.TextColor = System.Drawing.Color.White;
-            this.Login.UseVisualStyleBackColor = false;
-            this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
             // FolderSelect
             // 
@@ -112,6 +72,46 @@
             this.FolderSelect.UseVisualStyleBackColor = false;
             this.FolderSelect.Click += new System.EventHandler(this.FolderSelect_Click);
             // 
+            // DevHub
+            // 
+            this.DevHub.BackColor = System.Drawing.Color.Black;
+            this.DevHub.BorderColor = System.Drawing.Color.Orange;
+            this.DevHub.ButtonColor = System.Drawing.Color.Black;
+            this.DevHub.FlatAppearance.BorderSize = 0;
+            this.DevHub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DevHub.Font = new System.Drawing.Font("Unispace", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DevHub.Location = new System.Drawing.Point(602, 12);
+            this.DevHub.Name = "DevHub";
+            this.DevHub.OnHoverBorderColor = System.Drawing.Color.Orange;
+            this.DevHub.OnHoverButtonColor = System.Drawing.Color.Orange;
+            this.DevHub.OnHoverTextColor = System.Drawing.Color.Black;
+            this.DevHub.Size = new System.Drawing.Size(186, 81);
+            this.DevHub.TabIndex = 2;
+            this.DevHub.Text = "Dev Hub";
+            this.DevHub.TextColor = System.Drawing.Color.White;
+            this.DevHub.UseVisualStyleBackColor = false;
+            this.DevHub.Click += new System.EventHandler(this.Class11_Click);
+            // 
+            // Login
+            // 
+            this.Login.BackColor = System.Drawing.Color.Black;
+            this.Login.BorderColor = System.Drawing.Color.Orange;
+            this.Login.ButtonColor = System.Drawing.Color.Black;
+            this.Login.FlatAppearance.BorderSize = 0;
+            this.Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Login.Font = new System.Drawing.Font("Unispace", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Login.Location = new System.Drawing.Point(12, 12);
+            this.Login.Name = "Login";
+            this.Login.OnHoverBorderColor = System.Drawing.Color.Orange;
+            this.Login.OnHoverButtonColor = System.Drawing.Color.Orange;
+            this.Login.OnHoverTextColor = System.Drawing.Color.Black;
+            this.Login.Size = new System.Drawing.Size(186, 81);
+            this.Login.TabIndex = 1;
+            this.Login.Text = "Login";
+            this.Login.TextColor = System.Drawing.Color.White;
+            this.Login.UseVisualStyleBackColor = false;
+            this.Login.Click += new System.EventHandler(this.Login_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -120,7 +120,7 @@
             this.ClientSize = new System.Drawing.Size(799, 450);
             this.Controls.Add(this.FolderSelect);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.Logout);
+            this.Controls.Add(this.DevHub);
             this.Controls.Add(this.Login);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -133,7 +133,7 @@
         #endregion
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private ePOSOne.btnProduct.Class1 Login;
-        private ePOSOne.btnProduct.Class1 Logout;
+        private ePOSOne.btnProduct.Class1 DevHub;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private ePOSOne.btnProduct.Class1 FolderSelect;

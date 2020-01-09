@@ -12,6 +12,7 @@ namespace SFDXUI
 {
     public partial class Form1 : Form
     {
+        public string root;
         private string _output;
         public string labelText
         {
@@ -47,24 +48,28 @@ namespace SFDXUI
             textBox1.Text = output;
         }
 
+        // dev hub
         private void Class11_Click(object sender, EventArgs e)
         {
-            string Command = "sfdx force:org:open -u DevHub";
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
+            if(root != null)
             {
-                FileName = "cmd.exe",
-                WorkingDirectory = @"D:\code",
-                UseShellExecute = false,
-                Arguments = "/C " + Command,
-                Verb = "runas",
-                RedirectStandardOutput = true
-            };
-            process.StartInfo = startInfo;
-            process.Start();
-            output = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();
-            textBox1.Text = output;
+                string Command = "sfdx force:org:open -u DevHub";
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    WorkingDirectory = root,
+                    UseShellExecute = false,
+                    Arguments = "/C " + Command,
+                    Verb = "runas",
+                    RedirectStandardOutput = true
+                };
+                process.StartInfo = startInfo;
+                process.Start();
+                output = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+                textBox1.Text = output;
+            }
 
         }
 
@@ -77,13 +82,6 @@ namespace SFDXUI
         {
             
         }
-        public void ChooseFolder()
-        {
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
-            {
-                textBox1.Text = folderBrowserDialog1.SelectedPath;
-            }
-        }
 
         private void FolderSelect_Click(object sender, EventArgs e)
         {
@@ -95,7 +93,7 @@ namespace SFDXUI
             if (result == DialogResult.OK)
             {
                 textBox1.Text = folderDlg.SelectedPath;
-                Environment.SpecialFolder root = folderDlg.RootFolder;
+                root = folderDlg.SelectedPath;
             }
         }
     }
