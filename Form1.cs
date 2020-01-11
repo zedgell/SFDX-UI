@@ -12,17 +12,7 @@ namespace SFDXUI
 {
     public partial class Form1 : Form
     {
-        public string root;
-        private string _output;
-        public string labelText
-        {
-            get { return _output; }
-            set
-            {
-                _output = value;
-            }
-        }
-        string output;
+        string root;
         public Form1()
         {
             InitializeComponent();
@@ -43,9 +33,7 @@ namespace SFDXUI
             };
             process.StartInfo = startInfo;
             process.Start();
-            output = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
-            textBox1.Text = output;
         }
 
         // dev hub
@@ -66,9 +54,7 @@ namespace SFDXUI
                 };
                 process.StartInfo = startInfo;
                 process.Start();
-                output = process.StandardOutput.ReadToEnd();
                 process.WaitForExit();
-                textBox1.Text = output;
             }
 
         }
@@ -92,8 +78,40 @@ namespace SFDXUI
             DialogResult result = folderDlg.ShowDialog();
             if (result == DialogResult.OK)
             {
-                textBox1.Text = folderDlg.SelectedPath;
                 root = folderDlg.SelectedPath;
+            }
+        }
+
+        private void CreateProject_Click(object sender, EventArgs e)
+        {
+
+            PopUP popUpWindow = new PopUP();
+            DialogResult dialogresult = popUpWindow.ShowDialog();
+            if(dialogresult == DialogResult.OK)
+            {
+                if (root != null)
+                {
+                    string ProjectName = PopUP.ProjectName;
+                    string Command = "sfdx force:project:create -n " + ProjectName;
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = "cmd.exe",
+                        WorkingDirectory = root,
+                        UseShellExecute = false,
+                        Arguments = "/C " + Command,
+                        Verb = "runas",
+                        RedirectStandardOutput = true
+                    };
+                    process.StartInfo = startInfo;
+                    process.Start();
+                    process.WaitForExit();
+                    popUpWindow.Dispose();
+                }
+            }
+            else
+            {
+                popUpWindow.Dispose();
             }
         }
     }
