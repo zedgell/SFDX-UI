@@ -21,19 +21,7 @@ namespace SFDXUI
         private void Login_Click(object sender, EventArgs e)
         {
             string Command = "sfdx force:auth:web:login -d -a DevHub";
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
-            {
-                FileName = "cmd.exe",
-                WorkingDirectory = @"D:\code",
-                UseShellExecute = false,
-                Arguments = "/C " + Command,
-                Verb = "runas",
-                RedirectStandardOutput = true
-            };
-            process.StartInfo = startInfo;
-            process.Start();
-            process.WaitForExit();
+            Run_Cmd(Command, root);
         }
 
         // dev hub
@@ -42,31 +30,9 @@ namespace SFDXUI
             if(root != null)
             {
                 string Command = "sfdx force:org:open -u DevHub";
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
-                {
-                    FileName = "cmd.exe",
-                    WorkingDirectory = root,
-                    UseShellExecute = false,
-                    Arguments = "/C " + Command,
-                    Verb = "runas",
-                    RedirectStandardOutput = true
-                };
-                process.StartInfo = startInfo;
-                process.Start();
-                process.WaitForExit();
+                Run_Cmd(Command, root);
             }
 
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FolderBrowserDialog1_HelpRequest(object sender, EventArgs e)
-        {
-            
         }
 
         private void FolderSelect_Click(object sender, EventArgs e)
@@ -93,19 +59,7 @@ namespace SFDXUI
                 {
                     string ProjectName = PopUP.ProjectName;
                     string Command = "sfdx force:project:create -n " + ProjectName;
-                    System.Diagnostics.Process process = new System.Diagnostics.Process();
-                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
-                    {
-                        FileName = "cmd.exe",
-                        WorkingDirectory = root,
-                        UseShellExecute = false,
-                        Arguments = "/C " + Command,
-                        Verb = "runas",
-                        RedirectStandardOutput = true
-                    };
-                    process.StartInfo = startInfo;
-                    process.Start();
-                    process.WaitForExit();
+                    Run_Cmd(Command, root);
                     popUpWindow.Dispose();
                 }
             }
@@ -113,6 +67,26 @@ namespace SFDXUI
             {
                 popUpWindow.Dispose();
             }
+        }
+        private void Run_Cmd(string command, string directory)
+        {
+            Cmd_start(command, directory);
+        }
+        private void Cmd_start(string command, string directory)
+        {
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                WorkingDirectory = directory,
+                UseShellExecute = false,
+                Arguments = "/C " + command,
+                Verb = "runas",
+                RedirectStandardOutput = true
+            };
+            process.StartInfo = startInfo;
+            process.Start();
+            process.WaitForExit();
         }
     }
 }

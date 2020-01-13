@@ -30,16 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.FolderSelect = new ePOSOne.btnProduct.Class1();
             this.DevHub = new ePOSOne.btnProduct.Class1();
             this.Login = new ePOSOne.btnProduct.Class1();
             this.CreateProject = new ePOSOne.btnProduct.Class1();
             this.SuspendLayout();
-            // 
-            // folderBrowserDialog1
-            // 
-            this.folderBrowserDialog1.HelpRequest += new System.EventHandler(this.FolderBrowserDialog1_HelpRequest);
             // 
             // FolderSelect
             // 
@@ -145,7 +140,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private ePOSOne.btnProduct.Class1 Login;
         private ePOSOne.btnProduct.Class1 DevHub;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private ePOSOne.btnProduct.Class1 FolderSelect;
         private ePOSOne.btnProduct.Class1 CreateProject;
     }
