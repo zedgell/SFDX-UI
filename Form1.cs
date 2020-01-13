@@ -12,25 +12,26 @@ namespace SFDXUI
 {
     public partial class Form1 : Form
     {
-        string root;
+        public static string root = "C:\\";
         public Form1()
         {
             InitializeComponent();
+            Current_folder.Text = root;
         }
 
         private void Login_Click(object sender, EventArgs e)
         {
             string Command = "sfdx force:auth:web:login -d -a DevHub";
-            Run_Cmd(Command, root);
+            Cmd_start(Command, root);
         }
 
         // dev hub
         private void Class11_Click(object sender, EventArgs e)
         {
-            if(root != null)
+            if(root != "")
             {
                 string Command = "sfdx force:org:open -u DevHub";
-                Run_Cmd(Command, root);
+                Cmd_start(Command, root);
             }
 
         }
@@ -45,33 +46,34 @@ namespace SFDXUI
             if (result == DialogResult.OK)
             {
                 root = folderDlg.SelectedPath;
+                Current_folder.Text = root;
             }
         }
 
         private void CreateProject_Click(object sender, EventArgs e)
         {
-
             PopUP popUpWindow = new PopUP();
             DialogResult dialogresult = popUpWindow.ShowDialog();
-            if(dialogresult == DialogResult.OK)
+            if (root != "" && root != "Please Chose a Directory")
             {
-                if (root != null)
+                if (dialogresult == DialogResult.OK)
                 {
+                    if (PopUP.root != root)
+                    {
+                        root = PopUP.root;
+                    }
                     string ProjectName = PopUP.ProjectName;
                     string Command = "sfdx force:project:create -n " + ProjectName;
-                    Run_Cmd(Command, root);
+                    Cmd_start(Command, root);
+                    popUpWindow.Dispose();
+                }
+                else
+                {
                     popUpWindow.Dispose();
                 }
             }
-            else
-            {
-                popUpWindow.Dispose();
-            }
         }
-        private void Run_Cmd(string command, string directory)
-        {
-            Cmd_start(command, directory);
-        }
+
         private void Cmd_start(string command, string directory)
         {
             System.Diagnostics.Process process = new System.Diagnostics.Process();

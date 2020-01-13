@@ -33,6 +33,9 @@
             this.projectNameText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Cancel = new ePOSOne.btnProduct.Class1();
+            this.Directory = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Change_Directory = new ePOSOne.btnProduct.Class1();
             this.SuspendLayout();
             // 
             // Create
@@ -95,6 +98,50 @@
             this.Cancel.TextColor = System.Drawing.Color.White;
             this.Cancel.UseVisualStyleBackColor = false;
             // 
+            // Directory
+            // 
+            this.Directory.AutoSize = true;
+            this.Directory.Font = new System.Drawing.Font("Unispace", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Directory.ForeColor = System.Drawing.Color.White;
+            this.Directory.Location = new System.Drawing.Point(102, 117);
+            this.Directory.Name = "Directory";
+            this.Directory.Size = new System.Drawing.Size(236, 48);
+            this.Directory.TabIndex = 6;
+            this.Directory.Text = "Directory";
+            this.Directory.Click += new System.EventHandler(this.Label2_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Black;
+            this.label2.Font = new System.Drawing.Font("Unispace", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(105, 175);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(180, 28);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "D:/code/test";
+            // 
+            // Change_Directory
+            // 
+            this.Change_Directory.BackColor = System.Drawing.Color.Black;
+            this.Change_Directory.BorderColor = System.Drawing.Color.Orange;
+            this.Change_Directory.ButtonColor = System.Drawing.Color.Black;
+            this.Change_Directory.FlatAppearance.BorderSize = 0;
+            this.Change_Directory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Change_Directory.Font = new System.Drawing.Font("Unispace", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Change_Directory.Location = new System.Drawing.Point(525, 117);
+            this.Change_Directory.Name = "Change_Directory";
+            this.Change_Directory.OnHoverBorderColor = System.Drawing.Color.Orange;
+            this.Change_Directory.OnHoverButtonColor = System.Drawing.Color.Orange;
+            this.Change_Directory.OnHoverTextColor = System.Drawing.Color.Black;
+            this.Change_Directory.Size = new System.Drawing.Size(401, 86);
+            this.Change_Directory.TabIndex = 8;
+            this.Change_Directory.Text = "Change Directory";
+            this.Change_Directory.TextColor = System.Drawing.Color.White;
+            this.Change_Directory.UseVisualStyleBackColor = false;
+            this.Change_Directory.Click += new System.EventHandler(this.Change_Directory_Click);
+            // 
             // PopUP
             // 
             this.AcceptButton = this.Create;
@@ -102,8 +149,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.CancelButton = this.Cancel;
-            this.ClientSize = new System.Drawing.Size(936, 106);
+            this.ClientSize = new System.Drawing.Size(936, 239);
             this.ControlBox = false;
+            this.Controls.Add(this.Change_Directory);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Directory);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.projectNameText);
@@ -125,5 +175,8 @@
         private System.Windows.Forms.TextBox projectNameText;
         private System.Windows.Forms.Label label1;
         private ePOSOne.btnProduct.Class1 Cancel;
+        private System.Windows.Forms.Label Directory;
+        private System.Windows.Forms.Label label2;
+        private ePOSOne.btnProduct.Class1 Change_Directory;
     }
 }

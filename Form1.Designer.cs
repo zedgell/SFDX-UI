@@ -34,6 +34,8 @@
             this.DevHub = new ePOSOne.btnProduct.Class1();
             this.Login = new ePOSOne.btnProduct.Class1();
             this.CreateProject = new ePOSOne.btnProduct.Class1();
+            this.Current_folder = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // FolderSelect
@@ -116,6 +118,27 @@
             this.CreateProject.UseVisualStyleBackColor = false;
             this.CreateProject.Click += new System.EventHandler(this.CreateProject_Click);
             // 
+            // Current_folder
+            // 
+            this.Current_folder.AutoSize = true;
+            this.Current_folder.Font = new System.Drawing.Font("Unispace", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Current_folder.ForeColor = System.Drawing.Color.White;
+            this.Current_folder.Location = new System.Drawing.Point(12, 206);
+            this.Current_folder.Name = "Current_folder";
+            this.Current_folder.Size = new System.Drawing.Size(0, 40);
+            this.Current_folder.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Unispace", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 151);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(357, 40);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Current Directory";
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -124,6 +147,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(798, 456);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Current_folder);
             this.Controls.Add(this.CreateProject);
             this.Controls.Add(this.FolderSelect);
             this.Controls.Add(this.DevHub);
@@ -133,6 +158,7 @@
             this.Name = "Form1";
             this.Text = "SFDX";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -142,6 +168,8 @@
         private ePOSOne.btnProduct.Class1 DevHub;
         private ePOSOne.btnProduct.Class1 FolderSelect;
         private ePOSOne.btnProduct.Class1 CreateProject;
+        private System.Windows.Forms.Label Current_folder;
+        private System.Windows.Forms.Label label2;
     }
 }
 
