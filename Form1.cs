@@ -82,7 +82,9 @@ namespace SFDXUI
                 UseShellExecute = false,
                 Arguments = "/C " + command,
                 Verb = "runas",
-                RedirectStandardOutput = true
+                RedirectStandardOutput = true,
+                WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
+                CreateNoWindow = true
             };
             process.StartInfo = startInfo;
             process.Start();
