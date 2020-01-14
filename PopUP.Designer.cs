@@ -118,7 +118,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(105, 175);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 28);
+            this.label2.Size = new System.Drawing.Size(193, 29);
             this.label2.TabIndex = 7;
             this.label2.Text = "D:/code/test";
             // 

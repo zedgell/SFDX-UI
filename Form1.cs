@@ -15,15 +15,35 @@ namespace SFDXUI
     {
         //current directory
         public static string root = "C:\\";
+        public static string output;
 
         //Start the form and call the Update_Fields function
         public Form1()
         {
-            //Starts all the differnt components
-            InitializeComponent();
+            bool SFDXInstalled = Is_SFDX_Installed();
 
-            //Calls the update_fields function
-            Update_fields();
+            if (SFDXInstalled)
+            {
+                //Starts all the differnt components
+                InitializeComponent();
+
+                //Calls the update_fields function
+                Update_fields();
+            }
+        }
+
+        private bool Is_SFDX_Installed()
+        {
+            string SFDXCheck = "sfdx -v";
+            Cmd_start(SFDXCheck, root);
+            if (output.Contains("sfdx-cli"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         //Updates fields on start
@@ -155,6 +175,7 @@ namespace SFDXUI
             //starts command prompt
             process.Start();
 
+            output = process.StandardOutput.ReadToEnd();
             //Waits for the command to finish then closes the proccess
             process.WaitForExit();
         }
